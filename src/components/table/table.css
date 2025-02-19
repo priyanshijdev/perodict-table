@@ -1,0 +1,89 @@
+.periodic-table {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #7171df;
+    color: white;
+  }
+  
+  .periodic-table h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+  }
+  
+  .elements-grid {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .element-card {
+    position: relative;
+    aspect-ratio: 1;
+    padding: 8px;
+    border-radius: 4px;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .element-card:hover {
+    transform: scale(1.1);
+    z-index: 1;
+  }
+  
+  /* Element categories */
+  .element-card.alkali-metal { background-color: #ff8a65; }
+  .element-card.alkaline-earth { background-color: #ffb74d; }
+  .element-card.transition-metal { background-color: #4fc3f7; }
+  .element-card.post-transition { background-color: #81c784; }
+  .element-card.metalloid { background-color: #9575cd; }
+  .element-card.nonmetal { background-color: #4db6ac; }
+  .element-card.noble-gas { background-color: #f06292; }
+  .element-card.lanthanide { background-color: #7986cb; }
+  .element-card.actinide { background-color: #ff8a65; }
+  
+  .element-symbol {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .element-name {
+    font-size: 0.7em;
+    margin: 2px 0;
+  }
+  
+  .element-details {
+    font-size: 0.6em;
+    margin: 0;
+  }
+  
+  .atomic-number {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    font-size: 0.8em;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 1200px) {
+    .elements-grid {
+      grid-template-columns: repeat(9, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .elements-grid {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .elements-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
