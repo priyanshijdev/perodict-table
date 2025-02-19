@@ -1,89 +1,184 @@
 .periodic-table {
-    max-width: 1400px;
-    margin: 0 auto;
     padding: 20px;
-    background-color: #7171df;
+    background-color: #8292ec;
+    min-height: 100vh;
     color: white;
   }
   
   .periodic-table h1 {
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: white;
   }
   
   .elements-grid {
     display: grid;
     grid-template-columns: repeat(18, 1fr);
     gap: 4px;
-    margin: 0;
-    padding: 0;
     list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 1800px;
+    margin: 0 auto;
   }
   
-  .element-card {
+  /* Element positioning */
+  .elements-grid li {
     position: relative;
     aspect-ratio: 1;
-    padding: 8px;
-    border-radius: 4px;
-    transition: transform 0.2s ease-in-out;
+    padding: 4px;
     cursor: pointer;
+    transition: transform 0.2s;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
   }
   
-  .element-card:hover {
+  .elements-grid li:hover {
     transform: scale(1.1);
     z-index: 1;
   }
   
-  /* Element categories */
-  .element-card.alkali-metal { background-color: #ff8a65; }
-  .element-card.alkaline-earth { background-color: #ffb74d; }
-  .element-card.transition-metal { background-color: #4fc3f7; }
-  .element-card.post-transition { background-color: #81c784; }
-  .element-card.metalloid { background-color: #9575cd; }
-  .element-card.nonmetal { background-color: #4db6ac; }
-  .element-card.noble-gas { background-color: #f06292; }
-  .element-card.lanthanide { background-color: #7986cb; }
-  .element-card.actinide { background-color: #ff8a65; }
+  /* Special positioning for H and He */
+  .elements-grid li:first-child {
+    grid-column: 1;
+  }
+  
+  .elements-grid li:nth-child(2) {
+    grid-column: 18;
+  }
+  
+  /* Li and Be positioning */
+  .elements-grid li:nth-child(3) {
+    grid-column: 1;
+  }
+  
+  .elements-grid li:nth-child(4) {
+    grid-column: 2;
+  }
+  
+  /* B through Ne positioning */
+  .elements-grid li:nth-child(5) {
+    grid-column: 13;
+  }
+  
+  /* Element card content */
+  .atomic-number {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    font-size: 0.7rem;
+  }
   
   .element-symbol {
-    font-size: 1.5em;
+    font-size: 1.2rem;
     font-weight: bold;
     margin: 0;
   }
   
   .element-name {
-    font-size: 0.7em;
+    font-size: 0.6rem;
     margin: 2px 0;
+    text-align: center;
   }
   
   .element-details {
-    font-size: 0.6em;
+    font-size: 0.6rem;
     margin: 0;
   }
   
-  .atomic-number {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    font-size: 0.8em;
+  /* Element categories colors */
+  .alkali-metal {
+    background-color: #ff9933;
+  }
+  
+  .alkaline-earth {
+    background-color: #ffcc00;
+  }
+  
+  .transition-metal {
+    background-color: #ff99cc;
+  }
+  
+  .post-transition {
+    background-color: #99cc00;
+  }
+  
+  .metalloid {
+    background-color: #33cc33;
+  }
+  
+  .nonmetal {
+    background-color: #00ffff;
+  }
+  
+  .noble-gas {
+    background-color: #9999ff;
+  }
+  
+  .lanthanide {
+    background-color: #ff99ff;
+  }
+  
+  .actinide {
+    background-color: #ff6666;
+  }
+  
+  /* Modal styles */
+  .ant-modal-content {
+    background-color: #1a1a1a !important;
+    color: white !important;
+  }
+  
+  .ant-modal-header {
+    background-color: #1a1a1a !important;
+    color: white !important;
+  }
+  
+  .ant-modal-title {
+    color: white !important;
+  }
+  
+  .ant-card {
+    background-color: #2a2a2a !important;
+    color: white !important;
   }
   
   /* Responsive design */
   @media (max-width: 1200px) {
     .elements-grid {
-      grid-template-columns: repeat(9, 1fr);
+      gap: 2px;
+    }
+  
+    .elements-grid li {
+      padding: 2px;
+    }
+  
+    .element-symbol {
+      font-size: 1rem;
+    }
+  
+    .element-name,
+    .element-details,
+    .atomic-number {
+      font-size: 0.5rem;
     }
   }
   
   @media (max-width: 768px) {
     .elements-grid {
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(9, 1fr);
     }
-  }
   
-  @media (max-width: 480px) {
-    .elements-grid {
-      grid-template-columns: repeat(3, 1fr);
+    /* Adjust responsive positioning */
+    .elements-grid li:first-child,
+    .elements-grid li:nth-child(2),
+    .elements-grid li:nth-child(3),
+    .elements-grid li:nth-child(4),
+    .elements-grid li:nth-child(5) {
+      grid-column: auto;
     }
   }
